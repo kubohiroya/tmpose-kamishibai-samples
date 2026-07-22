@@ -23,11 +23,13 @@
 - `assets/images/`: 画像元データ24ファイル
 - `assets/sounds/`: 音声元データ21ファイル（組み込み対象18、来歴保存3）
 - `assets.lock.json`: 組み込み対象42件の名前、target、Scratchメタデータ、サイズ、SHA-256
-- `sample.config.json`: ベース、ビルダー、プロファイル、出力名
-- `artifacts.lock.json`: `_urashima` / `urashima` の再現可能な出力ハッシュ
+- `sample.config.json`: ベース、ビルダー、プロファイル、出力名、既定OFFのWeb生成機能を浦島太郎で有効にする設定
+- `artifacts.lock.json`: `_urashima` / `urashima` / `web/index.html` の再現可能な出力ハッシュ
 - `base/kamishibai.sb3`: `tmpose-kamishibai` `v3.1.0` の `generic` 成果物
 
 コスチューム18件は汎用アプリの `Actor`、背景6件と音声18件は `Stage` に組み込みます。これにより、汎用ベースへ浦島太郎専用のScratch targetを追加せず、台本のactor定義からクローンを生成できます。
+
+Web版は `player` の `urashima.sb3` だけをTurboWarp Packager 3.13.0へ渡して生成します。Packagerは外部URLのScratch拡張も単一HTMLへ取り込みます。実行時にオンライン取得するものはmanifestで許可したTMPoseのTensorFlow.js、Teachable Machine Pose、モデルに限定し、台本固有の画像・音声・台本はSB3内参照のまま利用します。
 
 アセットは、本体PR #44で浦島太郎固有コンテンツを分離する直前の `app/assets/` から同一バイト列で移設しています。ファイル名はScratchの `md5ext` 名を維持しています。
 

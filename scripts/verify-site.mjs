@@ -71,15 +71,32 @@ export async function verifyPublishedSite(options = {}) {
   const sourceDirectory = options.sourceDirectory ?? path.join(projectRoot, 'samples/urashima');
   const outputSampleDirectory = path.join(outputDirectory, 'samples/urashima');
 
-  const [sourceFiles, publishedFiles, rootIndex, sampleIndex, manifest, license, licenseSummary] =
+  const [
+    sourceFiles,
+    publishedFiles,
+    webFiles,
+    rootIndex,
+    sampleIndex,
+    manifest,
+    packageJson,
+    license,
+    licenseSummary,
+    packagerNotice,
+  ] =
     await Promise.all([
       listFiles(sourceDirectory),
       listFiles(outputDirectory),
+      listFiles(path.join(outputSampleDirectory, 'web')),
       verifyLinks(path.join(outputDirectory, 'index.html')),
       verifyLinks(path.join(outputSampleDirectory, 'index.html')),
       readFile(path.join(outputSampleDirectory, 'manifest.json'), 'utf8').then(JSON.parse),
+      readFile(path.join(projectRoot, 'package.json'), 'utf8').then(JSON.parse),
       readFile(path.join(outputDirectory, 'LICENSE'), 'utf8'),
       readFile(path.join(outputSampleDirectory, 'LICENSES.md'), 'utf8'),
+      readFile(
+        path.join(outputSampleDirectory, 'licenses/turbowarp-packager-NOTICE.md'),
+        'utf8',
+      ),
     ]);
 
   for (const relativePath of sourceFiles) {
@@ -90,7 +107,7 @@ export async function verifyPublishedSite(options = {}) {
     assert(source.equals(published), `Published file differs from source: ${relativePath}`);
   }
 
-  assert.equal(manifest.formatVersion, 2);
+  assert.equal(manifest.formatVersion, 3);
   assert.equal(manifest.sample, 'urashima');
   assert.equal(
     manifest.publicUrl,
@@ -98,6 +115,7 @@ export async function verifyPublishedSite(options = {}) {
   );
   assert.equal(manifest.license, 'MPL-2.0');
   assert.equal(manifest.builder.version, '3.1.0');
+  assert.equal(packageJson.devDependencies['@turbowarp/packager'], '3.13.0');
   assert.equal(manifest.baseSb3.profile, 'generic');
   assert.equal(manifest.baseSb3.published, true);
   assert.deepEqual(manifest.assetCounts, {images: 24, sounds: 21, embedded: 42});
@@ -129,12 +147,60 @@ export async function verifyPublishedSite(options = {}) {
   assert(sourceScript.includes(Buffer.from('file:assets/')));
   assert.equal(JSON.parse(assetManifest.toString('utf8')).assets.length, 42);
 
+  assert.equal(manifest.web.enabled, true);
+  assert.equal(manifest.web.publicPath, 'web/');
+  assert.equal(manifest.web.packager.package, '@turbowarp/packager');
+  assert.equal(manifest.web.packager.version, '3.13.0');
+  assert.deepEqual(manifest.web.packager.options, {
+    target: 'html',
+    autoplay: true,
+    app: {windowTitle: '浦島太郎 | TMPose紙芝居'},
+    cloudVariables: {mode: 'disabled'},
+    bakeExtensions: true,
+  });
+  assert.equal(manifest.web.packager.projectExtensions.length, 12);
+  assert.equal(manifest.web.scriptMode, 'embedded');
+  assert.equal(manifest.web.assets, 'embedded');
+  assert.deepEqual(manifest.web.reproducibility, {runs: 2, identical: true});
+  assert.deepEqual(manifest.web.input, {
+    profile: 'player',
+    path: manifest.profiles.player.sb3.path,
+    size: manifest.profiles.player.sb3.size,
+    sha256: manifest.profiles.player.sb3.sha256,
+  });
+  const webHtml = await verifyFile(outputSampleDirectory, manifest.web.output, 'Packager HTML');
+  assert.deepEqual(webFiles, ['index.html']);
+  assert(webHtml.length > 0);
+  assert(webHtml.length <= 104857600);
+  assert(webHtml.toString('utf8', 0, 128).startsWith('<!DOCTYPE html>'));
+  assert(webHtml.includes(Buffer.from('<title>浦島太郎 | TMPose紙芝居</title>')));
+  assert.deepEqual(
+    manifest.web.allowedOnlineDependencies.map(({urlPrefix}) => urlPrefix),
+    [
+      'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/',
+      'https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.3/',
+      'https://sqs.prof.cuc.ac.jp/kamishibai/20260630/',
+    ],
+  );
+  assert.deepEqual(
+    manifest.web.runtimeCapabilities.map(({capability}) => capability),
+    ['camera', 'audio'],
+  );
+
   assert(license.startsWith('Mozilla Public License Version 2.0'));
   assert(licenseSummary.includes('MPL-2.0'));
+  assert(licenseSummary.includes('turbowarp-packager-NOTICE.md'));
+  assert(licenseSummary.includes('完全オフライン版ではありません'));
+  assert(packagerNotice.includes('Copyright (C) 2021-2024 Thomas Weber'));
+  assert(packagerNotice.includes('MPL-2.0'));
   assert(rootIndex.includes('https://github.com/kubohiroya/tmpose-kamishibai-samples'));
   assert(!rootIndex.includes('https://kubohiroya.github.io/tmpose-kamishibai/samples/'));
   assert(sampleIndex.includes(manifest.profiles.player.sb3.sha256));
   assert(sampleIndex.includes(manifest.profiles.editor.sb3.sha256));
+  assert(sampleIndex.includes(manifest.web.output.sha256));
+  assert(rootIndex.indexOf('Web版を開く') < rootIndex.indexOf('台本を表示'));
+  assert(rootIndex.indexOf('台本を表示') < rootIndex.indexOf('再生用SB3をダウンロード'));
+  assert(sampleIndex.indexOf('Web版を開く') < sampleIndex.indexOf('台本を表示'));
   assert(sampleIndex.indexOf('台本を表示') < sampleIndex.indexOf('再生用SB3をダウンロード'));
   assert(publishedFiles.includes('.nojekyll'));
 
