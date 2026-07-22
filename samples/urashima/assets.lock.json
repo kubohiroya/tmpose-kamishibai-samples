@@ -1,0 +1,719 @@
+{
+  "formatVersion": 1,
+  "assets": [
+    {
+      "name": "Urashima-walk-1",
+      "uri": "file:assets/images/963e926995791fde1b335fd4ba60d6d7.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-walk-1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 352636,
+      "sha256": "f66c89b710324a7ca0809ab8cdc5acdfff83e988828a199403b7104ade6ec2df",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 360,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Urashima-help-1",
+      "uri": "file:assets/images/de2c9922d359138cd8f4fd96829c377a.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-help-1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 296401,
+      "sha256": "b457406d45d210d4362a929437936209a68736f75d80fe87daf0eea78efbb8db",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 346,
+        "rotationCenterY": 282
+      }
+    },
+    {
+      "name": "Urashima-dance-1",
+      "uri": "file:assets/images/fbcd808f6a222080bc8722d631e40ac4.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-dance-1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 369213,
+      "sha256": "f17340aa73f4c19d98343dd4afad9efc2580d63c879c842b17fa042879ce3d7d",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 352,
+        "rotationCenterY": 346.5
+      }
+    },
+    {
+      "name": "Urashima-dance-2",
+      "uri": "file:assets/images/2c8a567edc720b9039dc7a00bf164289.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-dance-2",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 394275,
+      "sha256": "6d5fe8b31511f108c2759698110aa06cebd41922a48d07757ec64106ded761ea",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 324,
+        "rotationCenterY": 320
+      }
+    },
+    {
+      "name": "Urashima-ride-1",
+      "uri": "file:assets/images/603045ae9bc87d42d84ebed21e76af7e.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-ride-1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 397701,
+      "sha256": "5e879ba21eefeee259a253a5cc29c29c75e6029072477e7d777f744e4d27e297",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 357.5,
+        "rotationCenterY": 355
+      }
+    },
+    {
+      "name": "Urashima-ride-2",
+      "uri": "file:assets/images/a6b0d96dd3d9fe9069acb213d2682caf.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-ride-2",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 392722,
+      "sha256": "14f59cd50ee5069a933d32590da0d2ea54714f50582c3fa3e609dc1179db6351",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 360,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Urashima-box-1",
+      "uri": "file:assets/images/0ec7d76d7a77cf94aa14a3cbf1030f1d.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-box-1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 348181,
+      "sha256": "9ee212d8b3bc6664a8df22f5d51242334d8db043eefebbcc679e41f556a6bd1b",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 360,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Urashima-box-2",
+      "uri": "file:assets/images/7c4060f3c1f3b3535a6c035d3c811ed4.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-box-2",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 315184,
+      "sha256": "96c63b8bae7644dbd1a46a6e6785f446cc7b88b6a52b8050a11e9d1d33a3e3f6",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 321,
+        "rotationCenterY": 338
+      }
+    },
+    {
+      "name": "Urashima-surprised",
+      "uri": "file:assets/images/9a9d051e632a6a0bc14283d4067051c3.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-surprised",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 322973,
+      "sha256": "03f3d3a0aa062210ca646a706f41bf238b514dc135ed9921d9f3168511a0cb42",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 321,
+        "rotationCenterY": 338
+      }
+    },
+    {
+      "name": "Urashima-open-1",
+      "uri": "file:assets/images/cccd1f9ec5d5f5d424391830a7e961ca.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-open-1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 321904,
+      "sha256": "ad3e2f2fa01c86acd93f4e8ad539f4fcd5ca691f66e4284c5659e93a9eb89159",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 360,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Urashima-open-2",
+      "uri": "file:assets/images/bf71533830b43c976033475e2c1ddda9.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-open-2",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 373839,
+      "sha256": "b424a2b6bbbbff4d345d4252c70b0a4a9792cc6d8ac416fba73868d69f43332e",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 258.5,
+        "rotationCenterY": 264
+      }
+    },
+    {
+      "name": "Urashima-open-3",
+      "uri": "file:assets/images/57cd266ee81b71c922eeec3cffaa9543.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-open-3",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 419137,
+      "sha256": "593a5caf83dcbc405df62f3d4fd8d9833ae5bc1fcac12a37c0ba815deeb81d65",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 360,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Urashima-old-1",
+      "uri": "file:assets/images/83e50d9ac4fb3c4b8e2f280dac8a31f7.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-old-1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 357710,
+      "sha256": "8e191c3ac08e04fbb0132879b5233c1112032b9a7075eb94798c17a5e313ed31",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 360,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Urashima-old-2",
+      "uri": "file:assets/images/8f7246587c9aa5e105ecf759ec7fdbf2.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Urashima-old-2",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 236870,
+      "sha256": "d0a383193b4668c30bb1a7669dfb7bd5d9f1cee1bfcfc7c4847e44cbf63ff114",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 248,
+        "rotationCenterY": 187
+      }
+    },
+    {
+      "name": "Turtle",
+      "uri": "file:assets/images/e9440d396734310dae5a63617d312015.svg",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Turtle",
+      "contentType": "image/svg+xml",
+      "dataFormat": "svg",
+      "size": 414139,
+      "sha256": "cf9c196bfcab97ad678b885214b3a1eeb02a52264c7650d6b3e78907ee6f2371",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 1,
+        "rotationCenterX": 173,
+        "rotationCenterY": 178
+      }
+    },
+    {
+      "name": "Princess",
+      "uri": "file:assets/images/bb5e81842988f89263e9f94aadb1adfb.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Princess",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 447344,
+      "sha256": "a2b3fa69d1e6450306dfd249b8efb2dcbd76e3c8a307cfb75f9dc1e88d9282aa",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 360,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Fish1",
+      "uri": "file:assets/images/b72fee140b181e3d2ece61e33c625b2c.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Fish1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 213276,
+      "sha256": "9d5a296c7ebc5734ab043bf6bbbf1dce3720bba51a2c0254a7f46ae1c52f31f7",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 354,
+        "rotationCenterY": 359
+      }
+    },
+    {
+      "name": "Fish2",
+      "uri": "file:assets/images/b06dbfe1c71a1309b12dced1411bfb74.png",
+      "kind": "costume",
+      "target": "Actor",
+      "sb3Name": "Fish2",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 214569,
+      "sha256": "8a4537889d975c48cb1b486d0b104c19c2539247080c2b327dd2aeeaf09f0117",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 346,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Beach1",
+      "uri": "file:assets/images/eb776c9010f3e8cb37c996ed28ced040.png",
+      "kind": "backdrop",
+      "target": "@stage",
+      "sb3Name": "Beach1",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 1451811,
+      "sha256": "d16403cbed2b8d931dd7ad4cf2328cfdc0ad52e7ae888824ba7dd4d128438fe9",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 480,
+        "rotationCenterY": 320
+      }
+    },
+    {
+      "name": "Beach2",
+      "uri": "file:assets/images/a3989cb8ade50e902eca361fb039eb9e.png",
+      "kind": "backdrop",
+      "target": "@stage",
+      "sb3Name": "Beach2",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 1237457,
+      "sha256": "224f2cf4d6a384bb6f48a3e0725536a2d329adc6c50d1c3573dc9555fbe6117c",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 480,
+        "rotationCenterY": 322
+      }
+    },
+    {
+      "name": "Ocean",
+      "uri": "file:assets/images/f17a928d2b84a862897355d764b27ea7.png",
+      "kind": "backdrop",
+      "target": "@stage",
+      "sb3Name": "Ocean",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 1484573,
+      "sha256": "daee38b7bc3dc3ba24d336cd33b44443200e154f1546fd3332bd01871f5759b5",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 480,
+        "rotationCenterY": 320
+      }
+    },
+    {
+      "name": "Dragon Castle",
+      "uri": "file:assets/images/cb0680dde39f37183cf6a036c1ba9d84.png",
+      "kind": "backdrop",
+      "target": "@stage",
+      "sb3Name": "Dragon Castle",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 1611867,
+      "sha256": "5107c938d825f45d04a37943ae49b3767e6d26e80efc054eb1fe9423dde3ca29",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 480,
+        "rotationCenterY": 320
+      }
+    },
+    {
+      "name": "Smoke",
+      "uri": "file:assets/images/93393d4256c7651095f509e7beede6f7.png",
+      "kind": "backdrop",
+      "target": "@stage",
+      "sb3Name": "Smoke",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 575791,
+      "sha256": "7227b4957a3bc3a67648fcfde4f390b1a9524c0d461bccdbfced0c7868d3e4c0",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 480,
+        "rotationCenterY": 320
+      }
+    },
+    {
+      "name": "End",
+      "uri": "file:assets/images/45b03f8de9c2090c0449184b43f0a33c.png",
+      "kind": "backdrop",
+      "target": "@stage",
+      "sb3Name": "End",
+      "contentType": "image/png",
+      "dataFormat": "png",
+      "size": 558732,
+      "sha256": "1f96993787fea1efb64cb37b55f2dcda9da00eef7d23921700d786ef6e61bcdf",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "bitmapResolution": 2,
+        "rotationCenterX": 480,
+        "rotationCenterY": 360
+      }
+    },
+    {
+      "name": "Guitar Chords2",
+      "uri": "file:assets/sounds/e956f15da397a13fae0c90d9fe4571fb.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Guitar Chords2",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 80444,
+      "sha256": "6eb22c537f1d332d0284f91e6a2ec8087d1c6a77b221da83158186e3f86941d6",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 159513
+      }
+    },
+    {
+      "name": "Rip",
+      "uri": "file:assets/sounds/4081f8fac2ca83bd34329400eb95bbde.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Rip",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 6204,
+      "sha256": "f306f822905764bb54b5f2672f4d9d20b66234eb1221069e132dd45ce470abe0",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 12193
+      }
+    },
+    {
+      "name": "Squish Pop",
+      "uri": "file:assets/sounds/853cc25eb47a35c88e3a1fe88b171ed4.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Squish Pop",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 5180,
+      "sha256": "10f9296c32b029e630df99f10ba943d7de117a5d6537f33dadad7aa7cdc14b6b",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 10161
+      }
+    },
+    {
+      "name": "Squeaky Toy",
+      "uri": "file:assets/sounds/09d36c3c7531a0a1224437f3994bad40.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Squeaky Toy",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 5180,
+      "sha256": "19b7ae1c1fdca48e3e9279465fdd576b5fe3ff9f8fe1bc67df218a4328c87818",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 10161
+      }
+    },
+    {
+      "name": "Jump",
+      "uri": "file:assets/sounds/6fcd64d6357e4ea03704e5f96bfd35ba.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Jump",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 3644,
+      "sha256": "5b729a8577877e0efe095758c4f4ffef581bd8b58fb9e7ee8a753bb37bec4c35",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 7113
+      }
+    },
+    {
+      "name": "Odesong",
+      "uri": "file:assets/sounds/2c41921491b1da2bfa1ebcaba34265ca.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Odesong",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 107068,
+      "sha256": "5a828083703411e3d16a491c5784ffff85ba9996941931b3bf9845a3d80adf93",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 212345
+      }
+    },
+    {
+      "name": "Splash",
+      "uri": "file:assets/sounds/6aed5e38d40b87a21d893d26fa2858c0.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Splash",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 23612,
+      "sha256": "0370789086a5dc6a54088f125c78ff916f74740396612255530d85a72db737f0",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 46737
+      }
+    },
+    {
+      "name": "Drum Funky",
+      "uri": "file:assets/sounds/fb56022366d21b299cbc3fd5e16000c2.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Drum Funky",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 22588,
+      "sha256": "8fa44f05cf3a9fe4c1e3b310bad7fbc371e0af776483ffe37c44593693f1a5b8",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 44705
+      }
+    },
+    {
+      "name": "Medieval2",
+      "uri": "file:assets/sounds/7bc8c4a9d0525f04451356c6cc483dd7.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Medieval2",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 163388,
+      "sha256": "02da6ca124a876b0275a1e2d6fa0eaad5f1089324943df19ad90751f1d6125fe",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 324105
+      }
+    },
+    {
+      "name": "Medieval1",
+      "uri": "file:assets/sounds/9329fef6a59c5406d70cbe5837976d6b.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Medieval1",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 107580,
+      "sha256": "facb13b9b03b55b6ffa8a6b43232b084278834e1bb152b730589146010efd749",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 213361
+      }
+    },
+    {
+      "name": "Lo Gliss Tabla",
+      "uri": "file:assets/sounds/d7cd24689737569c93e7ea7344ba6b0e.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Lo Gliss Tabla",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 14060,
+      "sha256": "2078dae17f3b8ca72a088247857c70c36afd9fd11bffe00303d7cce7bfe1de10",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 48000,
+        "sampleCount": 15255
+      }
+    },
+    {
+      "name": "Low Conga",
+      "uri": "file:assets/sounds/0b6f94487cd8a1cf0bb77e15966656c3.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Low Conga",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 16812,
+      "sha256": "3c805a650039fb6f0941f3235792c50f650045d950100d5fd38c2e019bea4b8e",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 48000,
+        "sampleCount": 18250
+      }
+    },
+    {
+      "name": "Lo Geh Tabla",
+      "uri": "file:assets/sounds/9205359ab69d042ed3da8a160a651690.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Lo Geh Tabla",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 61612,
+      "sha256": "29b8faa2376df5855290cf96d76ff2a2f721df6f71925275508bbb2b1f12f560",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 48000,
+        "sampleCount": 67012
+      }
+    },
+    {
+      "name": "Gong",
+      "uri": "file:assets/sounds/bd7004546144bf54536c7142cddfbc6b.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Gong",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 456946,
+      "sha256": "048c1269d983a6cd87b49709cc82f02d350c120bd26313867f36bc02f8c64052",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 48000,
+        "sampleCount": 228451
+      }
+    },
+    {
+      "name": "Crowd Gasp",
+      "uri": "file:assets/sounds/0eaf773c9d1b06e801e7b5fd56298801.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Crowd Gasp",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 13884,
+      "sha256": "0d8ef3462afb4bbfc3589e84da7a2db8765adfcbe1d6b17e6c1ee02d3c26dafd",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 27433
+      }
+    },
+    {
+      "name": "Ocean Wave",
+      "uri": "file:assets/sounds/c904610d770398b98872a708a2f75611.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Ocean Wave",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 50236,
+      "sha256": "61386f516262a9c9709755bdf8da44f594f61a7745b35ae9e04341d2edec903b",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 99569
+      }
+    },
+    {
+      "name": "Xylo2",
+      "uri": "file:assets/sounds/d38fc904a0acfc27854baf7335ed46f9.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Xylo2",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 124476,
+      "sha256": "a0ef206820535e9a2a9f8668212b9fda1d556bea7c9dcdc8576849afbaab82c3",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 246889
+      }
+    },
+    {
+      "name": "Goal Cheer",
+      "uri": "file:assets/sounds/a434069c58e79d42f5d21abb1c318919.wav",
+      "kind": "stageSound",
+      "target": "@stage",
+      "sb3Name": "Goal Cheer",
+      "contentType": "audio/wav",
+      "dataFormat": "wav",
+      "size": 42556,
+      "sha256": "4cd779a8f7435d9433793ba8f3ee411f5244163f663d24503e4d8ba082b0d257",
+      "license": "MPL-2.0: LICENSES.md",
+      "metadata": {
+        "format": "",
+        "rate": 22050,
+        "sampleCount": 84329
+      }
+    }
+  ]
+}

@@ -6,4 +6,30 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    dependencies:
+      '@kubohiroya/tmpose-kamishibai':
+        specifier: github:kubohiroya/tmpose-kamishibai#v3.1.0
+        version: https://codeload.github.com/kubohiroya/tmpose-kamishibai/tar.gz/c92c310159c88ff03ed3cae65dbe21f1991fcf16
+      fflate:
+        specifier: 0.8.3
+        version: 0.8.3
+
+packages:
+
+  '@kubohiroya/tmpose-kamishibai@https://codeload.github.com/kubohiroya/tmpose-kamishibai/tar.gz/c92c310159c88ff03ed3cae65dbe21f1991fcf16':
+    resolution: {gitHosted: true, integrity: sha512-rDITDNL5obWXgxPin+gvRaPeW6phZMQgxr71VcX9RI43335tj78nnOspYuOAOVljkJPj+uB8mz1evLCHTsrKJA==, tarball: https://codeload.github.com/kubohiroya/tmpose-kamishibai/tar.gz/c92c310159c88ff03ed3cae65dbe21f1991fcf16}
+    version: 3.1.0
+    engines: {node: '>=22.12.0'}
+    hasBin: true
+
+  fflate@0.8.3:
+    resolution: {integrity: sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==}
+
+snapshots:
+
+  '@kubohiroya/tmpose-kamishibai@https://codeload.github.com/kubohiroya/tmpose-kamishibai/tar.gz/c92c310159c88ff03ed3cae65dbe21f1991fcf16':
+    dependencies:
+      fflate: 0.8.3
+
+  fflate@0.8.3: {}

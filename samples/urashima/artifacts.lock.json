@@ -1,0 +1,38 @@
+{
+  "formatVersion": 1,
+  "builder": {
+    "package": "@kubohiroya/tmpose-kamishibai",
+    "version": "3.1.0",
+    "commit": "c92c310159c88ff03ed3cae65dbe21f1991fcf16"
+  },
+  "profiles": {
+    "editor": {
+      "outputName": "_urashima",
+      "sb3": {
+        "size": 14422185,
+        "sha256": "37ccab0d5b8b317d1eb16354416dd6111cf412d6160fbf5ee81e1909e6e48b73"
+      },
+      "script": {
+        "size": 8327,
+        "sha256": "052aba497a229884258582b0f9b446cd6c689bf36d227f136ae9171528b4a0e7"
+      },
+      "manifest": {
+        "sha256": "d000e9bd04e77d244c43b34e00a21428d90f6cdf4be544a601f20dd54d908230"
+      }
+    },
+    "player": {
+      "outputName": "urashima",
+      "sb3": {
+        "size": 14424395,
+        "sha256": "0d8ce9ea4c6bb961d2e97d28933e3725f36ee18896508cb5aed3bb12535e5301"
+      },
+      "script": {
+        "size": 8327,
+        "sha256": "052aba497a229884258582b0f9b446cd6c689bf36d227f136ae9171528b4a0e7"
+      },
+      "manifest": {
+        "sha256": "e717a1337ed51ba0656f45415d36030179e84361eed061838308495b49afee93"
+      }
+    }
+  }
+}
