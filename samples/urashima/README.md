@@ -10,6 +10,10 @@
 
 アセットは、本体PR #44で浦島太郎固有コンテンツを分離する直前の `app/assets/` から同一バイト列で移設しています。ファイル名はScratchの `md5ext` 名を維持し、ターゲット、コスチューム、背景、音声名との対応は `urashima.sb3` 内の `project.json` で保持しています。
 
+## ライセンス
+
+台本、画像、音声、SB3はMozilla Public License 2.0（SPDX: `MPL-2.0`）で提供します。適用範囲と表記は [`LICENSES.md`](LICENSES.md) を参照してください。
+
 ## 来歴
 
 - 移設元: [`kubohiroya/tmpose-kamishibai`](https://github.com/kubohiroya/tmpose-kamishibai) PR #44

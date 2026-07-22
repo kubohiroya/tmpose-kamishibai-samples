@@ -1,0 +1,18 @@
+{
+  "name": "tmpose-kamishibai-samples",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TMPose紙芝居の公開サンプルとGitHub Pagesサイト",
+  "homepage": "https://kubohiroya.github.io/tmpose-kamishibai-samples/",
+  "license": "MPL-2.0",
+  "packageManager": "pnpm@11.11.0",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "node scripts/verify-site.mjs"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
