@@ -411,308 +411,308 @@
     },
     {
       "name": "Guitar Chords2",
-      "uri": "file:assets/sounds/e956f15da397a13fae0c90d9fe4571fb.wav",
+      "uri": "file:assets/sounds/b3dde1b18eefc1b833889cfb0166347e.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Guitar Chords2",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 80444,
-      "sha256": "6eb22c537f1d332d0284f91e6a2ec8087d1c6a77b221da83158186e3f86941d6",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 117072,
+      "sha256": "2d952f8112d1a2320f5933f7450ac46f38a40341d4f79cd26f725ae5c390746a",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 159513
+        "rate": 44100,
+        "sampleCount": 319026
       }
     },
     {
       "name": "Rip",
-      "uri": "file:assets/sounds/4081f8fac2ca83bd34329400eb95bbde.wav",
+      "uri": "file:assets/sounds/edef7e21a863bd400323a8a84359724b.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Rip",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 6204,
-      "sha256": "f306f822905764bb54b5f2672f4d9d20b66234eb1221069e132dd45ce470abe0",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 10075,
+      "sha256": "b3d2d269e571ca28bb5a0130e6521423a1add7f6ca0abd0de44274a2db7fc297",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 12193
+        "rate": 44100,
+        "sampleCount": 24386
       }
     },
     {
       "name": "Squish Pop",
-      "uri": "file:assets/sounds/853cc25eb47a35c88e3a1fe88b171ed4.wav",
+      "uri": "file:assets/sounds/ff3775a2cc22c7c87eb8b851ed650efe.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Squish Pop",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 5180,
-      "sha256": "10f9296c32b029e630df99f10ba943d7de117a5d6537f33dadad7aa7cdc14b6b",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 8403,
+      "sha256": "e0b8aea723012ae42ed88d1f28b2413dac4eeae8f074c8caf4f5dd05d38d08d2",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 10161
+        "rate": 44100,
+        "sampleCount": 20322
       }
     },
     {
       "name": "Squeaky Toy",
-      "uri": "file:assets/sounds/09d36c3c7531a0a1224437f3994bad40.wav",
+      "uri": "file:assets/sounds/439f8657b1cb684019a48463e05efa8b.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Squeaky Toy",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 5180,
-      "sha256": "19b7ae1c1fdca48e3e9279465fdd576b5fe3ff9f8fe1bc67df218a4328c87818",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 8403,
+      "sha256": "1b90fdb3898da8828d28ac77aca24404901d074fc62ad250c98ca4d995ad16b2",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 10161
+        "rate": 44100,
+        "sampleCount": 20322
       }
     },
     {
       "name": "Jump",
-      "uri": "file:assets/sounds/6fcd64d6357e4ea03704e5f96bfd35ba.wav",
+      "uri": "file:assets/sounds/02283e47a05e37d03a26eda444f331aa.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Jump",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 3644,
-      "sha256": "5b729a8577877e0efe095758c4f4ffef581bd8b58fb9e7ee8a753bb37bec4c35",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 6313,
+      "sha256": "ed9b0ce39b080a49f792de76774326a586676f67d0b180b4833ff79c09222935",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 7113
+        "rate": 44100,
+        "sampleCount": 14226
       }
     },
     {
       "name": "Odesong",
-      "uri": "file:assets/sounds/2c41921491b1da2bfa1ebcaba34265ca.wav",
+      "uri": "file:assets/sounds/94a18e35af30d118a139d0394d38f32d.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Odesong",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 107068,
-      "sha256": "5a828083703411e3d16a491c5784ffff85ba9996941931b3bf9845a3d80adf93",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 155524,
+      "sha256": "4e4ce55aa96a44893573cddb4a458b3513f8de1c336639c815469abca4c869b7",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 212345
+        "rate": 44100,
+        "sampleCount": 424690
       }
     },
     {
       "name": "Splash",
-      "uri": "file:assets/sounds/6aed5e38d40b87a21d893d26fa2858c0.wav",
+      "uri": "file:assets/sounds/98e221fee9f4930b018496fb3a266687.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Splash",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 23612,
-      "sha256": "0370789086a5dc6a54088f125c78ff916f74740396612255530d85a72db737f0",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 35152,
+      "sha256": "0514fa5ad43d69c39486f7ecc5d0cf3b2d2ec2f81904b499883b08d6b629a488",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 46737
+        "rate": 44100,
+        "sampleCount": 93474
       }
     },
     {
       "name": "Drum Funky",
-      "uri": "file:assets/sounds/fb56022366d21b299cbc3fd5e16000c2.wav",
+      "uri": "file:assets/sounds/c28fb91feabdce6f882cbe8a6130c9c8.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Drum Funky",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 22588,
-      "sha256": "8fa44f05cf3a9fe4c1e3b310bad7fbc371e0af776483ffe37c44593693f1a5b8",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 33480,
+      "sha256": "b404131549c340da59660be3226131367031f1783a78a1f808f682713b05f819",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 44705
+        "rate": 44100,
+        "sampleCount": 89410
       }
     },
     {
       "name": "Medieval2",
-      "uri": "file:assets/sounds/7bc8c4a9d0525f04451356c6cc483dd7.wav",
+      "uri": "file:assets/sounds/26bc2918f3516ee760f6f31c23d61e11.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Medieval2",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 163388,
-      "sha256": "02da6ca124a876b0275a1e2d6fa0eaad5f1089324943df19ad90751f1d6125fe",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 236608,
+      "sha256": "bce7ea84b1e23e44d2df9f133581c0b02bb84c9ff84b8266f5749dcff7e7c82a",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 324105
+        "rate": 44100,
+        "sampleCount": 648210
       }
     },
     {
       "name": "Medieval1",
-      "uri": "file:assets/sounds/9329fef6a59c5406d70cbe5837976d6b.wav",
+      "uri": "file:assets/sounds/3dc51a6cfa6c4078aeeafb5db54b0290.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Medieval1",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 107580,
-      "sha256": "facb13b9b03b55b6ffa8a6b43232b084278834e1bb152b730589146010efd749",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 155942,
+      "sha256": "0d600d7be53fc8b22d8e69f9495e8712e6c9b6e1949a0fc20ba1625d6ed3977f",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 213361
+        "rate": 44100,
+        "sampleCount": 426722
       }
     },
     {
       "name": "Lo Gliss Tabla",
-      "uri": "file:assets/sounds/d7cd24689737569c93e7ea7344ba6b0e.wav",
+      "uri": "file:assets/sounds/9a3d3c59ddb24028da478eb5f4fe3217.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Lo Gliss Tabla",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 14060,
-      "sha256": "2078dae17f3b8ca72a088247857c70c36afd9fd11bffe00303d7cce7bfe1de10",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 6313,
+      "sha256": "04333eaeba44ea7f7900b0e85e67c7e4b499e3ff4c5b2ad6b01f33a5dfbac119",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 48000,
-        "sampleCount": 15255
+        "rate": 44100,
+        "sampleCount": 14016
       }
     },
     {
       "name": "Low Conga",
-      "uri": "file:assets/sounds/0b6f94487cd8a1cf0bb77e15966656c3.wav",
+      "uri": "file:assets/sounds/c8531feaf9e1e7342d1171961d8443aa.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Low Conga",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 16812,
-      "sha256": "3c805a650039fb6f0941f3235792c50f650045d950100d5fd38c2e019bea4b8e",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 7149,
+      "sha256": "2180333d0c921f5fc65c32c98259a9e747fe124b11c7e4f3b3d77d20dfa62c0b",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 48000,
-        "sampleCount": 18250
+        "rate": 44100,
+        "sampleCount": 16767
       }
     },
     {
       "name": "Lo Geh Tabla",
-      "uri": "file:assets/sounds/9205359ab69d042ed3da8a160a651690.wav",
+      "uri": "file:assets/sounds/579156750e1ce25b2a829780df2598e6.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Lo Geh Tabla",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 61612,
-      "sha256": "29b8faa2376df5855290cf96d76ff2a2f721df6f71925275508bbb2b1f12f560",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 23449,
+      "sha256": "2ff8c5dc94a492a70542b2d95a299f0d78dc3cf754e581e8843ad0cd14a9037d",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 48000,
-        "sampleCount": 67012
+        "rate": 44100,
+        "sampleCount": 61567
       }
     },
     {
       "name": "Gong",
-      "uri": "file:assets/sounds/bd7004546144bf54536c7142cddfbc6b.wav",
+      "uri": "file:assets/sounds/953ecfbb79d1974cf8a510922f3cc97d.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Gong",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 456946,
-      "sha256": "048c1269d983a6cd87b49709cc82f02d350c120bd26313867f36bc02f8c64052",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 77366,
+      "sha256": "2694f534a2b8c37747f242b9323ca81942191f2adcd1f5db5a4225b96c3c344a",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 48000,
-        "sampleCount": 228451
+        "rate": 44100,
+        "sampleCount": 209889
       }
     },
     {
       "name": "Crowd Gasp",
-      "uri": "file:assets/sounds/0eaf773c9d1b06e801e7b5fd56298801.wav",
+      "uri": "file:assets/sounds/12e6c84f065d6a8b651e8fbb4b246e2a.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Crowd Gasp",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 13884,
-      "sha256": "0d8ef3462afb4bbfc3589e84da7a2db8765adfcbe1d6b17e6c1ee02d3c26dafd",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 20942,
+      "sha256": "ebf0918dd69dab9ed323a2e75b8d9efe0e8f659aefc1ef7dda29abec1f5d9fb8",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 27433
+        "rate": 44100,
+        "sampleCount": 54866
       }
     },
     {
       "name": "Ocean Wave",
-      "uri": "file:assets/sounds/c904610d770398b98872a708a2f75611.wav",
+      "uri": "file:assets/sounds/9bdabd397aac6305ceb80899c7b2ae78.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Ocean Wave",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 50236,
-      "sha256": "61386f516262a9c9709755bdf8da44f594f61a7745b35ae9e04341d2edec903b",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 73604,
+      "sha256": "905d6f935ea6c48ef58d893115a4bc55c73d051f551f8d9215f74365c1fef4b3",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 99569
+        "rate": 44100,
+        "sampleCount": 199138
       }
     },
     {
       "name": "Xylo2",
-      "uri": "file:assets/sounds/d38fc904a0acfc27854baf7335ed46f9.wav",
+      "uri": "file:assets/sounds/e4ee886bed15fe374cf8faf73ea423f4.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Xylo2",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 124476,
-      "sha256": "a0ef206820535e9a2a9f8668212b9fda1d556bea7c9dcdc8576849afbaab82c3",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 180602,
+      "sha256": "650bceafec172c7e845d5d531d658d64d10a9be2f5bdcd339f11adadcd997944",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 246889
+        "rate": 44100,
+        "sampleCount": 493778
       }
     },
     {
       "name": "Goal Cheer",
-      "uri": "file:assets/sounds/a434069c58e79d42f5d21abb1c318919.wav",
+      "uri": "file:assets/sounds/72a029d02f38062e3d3eecc5605b2289.mp3",
       "kind": "stageSound",
       "target": "@stage",
       "sb3Name": "Goal Cheer",
-      "contentType": "audio/wav",
-      "dataFormat": "wav",
-      "size": 42556,
-      "sha256": "4cd779a8f7435d9433793ba8f3ee411f5244163f663d24503e4d8ba082b0d257",
+      "contentType": "audio/mpeg",
+      "dataFormat": "mp3",
+      "size": 62319,
+      "sha256": "cdc7e63421bd60c79e61e977a0889553be71d4540a6212972a49d161370c6d0d",
       "license": "MPL-2.0: LICENSES.md",
       "metadata": {
         "format": "",
-        "rate": 22050,
-        "sampleCount": 84329
+        "rate": 44100,
+        "sampleCount": 168658
       }
     }
   ]

@@ -28,7 +28,7 @@ function escapeHtml(value) {
 function contentType(filename) {
   if (filename.endsWith('.png')) return 'image/png';
   if (filename.endsWith('.svg')) return 'image/svg+xml';
-  if (filename.endsWith('.wav')) return 'audio/wav';
+  if (filename.endsWith('.mp3')) return 'audio/mpeg';
   throw new Error(`Unsupported asset format: ${filename}`);
 }
 

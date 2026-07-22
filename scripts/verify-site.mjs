@@ -121,10 +121,16 @@ export async function verifyPublishedSite(options = {}) {
   assert.deepEqual(manifest.assetCounts, {images: 24, sounds: 21, embedded: 42});
   assert.equal(manifest.assets.length, 45);
   assert.deepEqual(manifest.unusedSourceAssets, [
-    'assets/sounds/a5cd5e83841aaaf34583d6ad53d551f5.wav',
-    'assets/sounds/a634fcb87894520edbd7a534d1479ec4.wav',
-    'assets/sounds/c04ebf21e5e19342fa1535e4efcdb43b.wav',
+    'assets/sounds/13561fa02a628ea56859f72a90a3bfab.mp3',
+    'assets/sounds/9d01505050dea4f782cd59635bcbab63.mp3',
+    'assets/sounds/ab4760e0c9f0db6d1f5e83e3a0e9bf4f.mp3',
   ]);
+  assert.equal(
+    manifest.assets
+      .filter((asset) => asset.path.startsWith('assets/sounds/'))
+      .every((asset) => asset.contentType === 'audio/mpeg' && asset.path.endsWith('.mp3')),
+    true,
+  );
   for (const asset of manifest.assets) {
     await verifyFile(outputSampleDirectory, asset, asset.path);
   }
