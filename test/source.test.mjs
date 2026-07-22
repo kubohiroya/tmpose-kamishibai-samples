@@ -8,6 +8,11 @@ import {fileURLToPath} from 'node:url';
 import {validateAssetManifest} from '@kubohiroya/tmpose-kamishibai/builder';
 import {strFromU8, unzipSync} from 'fflate';
 
+import {
+  buildPackagedWeb,
+  DEFAULT_WEB_CONFIGURATION,
+} from '../scripts/build-packaged-web.mjs';
+
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const sampleDirectory = path.join(projectRoot, 'samples/urashima');
 
@@ -15,18 +20,22 @@ function sha256(contents) {
   return createHash('sha256').update(contents).digest('hex');
 }
 
-test('licenses the repository and Urashima content under MPL-2.0', async () => {
-  const [packageJson, license, licenseSummary, runtimeLicense] = await Promise.all([
+test('licenses the repository, Urashima content, and Packager notices', async () => {
+  const [packageJson, license, licenseSummary, runtimeLicense, packagerNotice] = await Promise.all([
     readFile(path.join(projectRoot, 'package.json'), 'utf8').then(JSON.parse),
     readFile(path.join(projectRoot, 'LICENSE'), 'utf8'),
     readFile(path.join(sampleDirectory, 'LICENSES.md'), 'utf8'),
     readFile(path.join(sampleDirectory, 'licenses/tmpose-kamishibai-MIT.txt'), 'utf8'),
+    readFile(path.join(sampleDirectory, 'licenses/turbowarp-packager-NOTICE.md'), 'utf8'),
   ]);
   assert.equal(packageJson.license, 'MPL-2.0');
   assert(license.startsWith('Mozilla Public License Version 2.0'));
   assert(licenseSummary.includes('MPL-2.0'));
   assert(licenseSummary.includes('tmpose-kamishibai-MIT.txt'));
   assert(runtimeLicense.startsWith('MIT License'));
+  assert(licenseSummary.includes('turbowarp-packager-NOTICE.md'));
+  assert(packagerNotice.includes('TurboWarp Packager 3.13.0'));
+  assert(packagerNotice.includes('MPL-2.0'));
 });
 
 test('keeps the migrated Scratch assets complete and content-addressed', async () => {
@@ -62,11 +71,28 @@ test('pins the generic, editor, and player profile contract', async () => {
   assert.equal(config.baseSb3.profile, 'generic');
   assert.equal(config.baseSb3.size, baseSb3.length);
   assert.equal(config.baseSb3.sha256, sha256(baseSb3));
+  assert.equal(artifactsLock.formatVersion, 2);
   assert.deepEqual(config.profiles, {
     editor: {outputName: '_urashima', script: 'external', assets: 'embedded'},
     player: {outputName: 'urashima', script: 'embedded', assets: 'embedded'},
   });
   assert.deepEqual(Object.keys(artifactsLock.profiles).sort(), ['editor', 'player']);
+  assert.deepEqual(DEFAULT_WEB_CONFIGURATION, {enabled: false});
+  assert.equal(packageJson.devDependencies['@turbowarp/packager'], '3.13.0');
+  assert.equal(config.web.enabled, true);
+  assert.equal(config.web.inputProfile, 'player');
+  assert.equal(config.web.scriptMode, 'embedded');
+  assert.equal(config.web.assets, 'embedded');
+  assert.equal(config.web.packager.version, '3.13.0');
+  assert.equal(config.web.packager.options.target, 'html');
+  assert.equal(config.web.packager.options.autoplay, true);
+  assert.equal(config.web.packager.options.app.windowTitle, '浦島太郎 | TMPose紙芝居');
+  assert.equal(config.web.packager.options.cloudVariables.mode, 'disabled');
+  assert.deepEqual(artifactsLock.web.input, {
+    profile: 'player',
+    path: 'urashima.sb3',
+    ...artifactsLock.profiles.player.sb3,
+  });
 
   const archive = unzipSync(new Uint8Array(baseSb3));
   const project = JSON.parse(strFromU8(archive['project.json']));
@@ -76,6 +102,10 @@ test('pins the generic, editor, and player profile contract', async () => {
     project.targets.map((target) => target.name),
     ['Stage', 'Actor', 'prompt', 'openButton', 'reloadButton', 'showTitleButton', 'Hatchling'],
   );
+});
+
+test('keeps shared Packager output disabled unless a sample enables it', async () => {
+  assert.deepEqual(await buildPackagedWeb({}), {enabled: false});
 });
 
 test('locks every external script asset and publishes one transformed script', async () => {

@@ -27,5 +27,52 @@
       "script": "embedded",
       "assets": "embedded"
     }
+  },
+  "web": {
+    "enabled": true,
+    "inputProfile": "player",
+    "outputDirectory": "web",
+    "outputFilename": "index.html",
+    "maxOutputBytes": 104857600,
+    "scriptMode": "embedded",
+    "assets": "embedded",
+    "packager": {
+      "package": "@turbowarp/packager",
+      "version": "3.13.0",
+      "options": {
+        "target": "html",
+        "autoplay": true,
+        "app": {
+          "windowTitle": "浦島太郎 | TMPose紙芝居"
+        },
+        "cloudVariables": {
+          "mode": "disabled"
+        }
+      }
+    },
+    "allowedOnlineDependencies": [
+      {
+        "urlPrefix": "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/",
+        "purpose": "TMPoseのTensorFlow.jsランタイム"
+      },
+      {
+        "urlPrefix": "https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.3/",
+        "purpose": "TMPoseのTeachable Machine Poseランタイム"
+      },
+      {
+        "urlPrefix": "https://sqs.prof.cuc.ac.jp/kamishibai/20260630/",
+        "purpose": "台本で指定するTMPoseモデル"
+      }
+    ],
+    "runtimeCapabilities": [
+      {
+        "capability": "camera",
+        "purpose": "TMPoseによるポーズ認識"
+      },
+      {
+        "capability": "audio",
+        "purpose": "組み込み済み音声の再生"
+      }
+    ]
   }
 }

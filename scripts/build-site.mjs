@@ -4,6 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 import {buildUrashima} from './build-urashima.mjs';
+import {buildPackagedWeb} from './build-packaged-web.mjs';
 import {verifyPublishedSite} from './verify-site.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -58,6 +59,12 @@ async function assetRecords(directory, kind) {
 }
 
 function renderRootIndex(manifest) {
+  const webDescription = manifest.web.enabled
+    ? '<p>Web版には画像・音声・台本を組み込み済みです。TMPoseのライブラリ・モデル取得とカメラ利用にはネットワーク接続が必要です。</p>'
+    : '';
+  const webAction = manifest.web.enabled
+    ? '      <a class="button" href="samples/urashima/web/">Web版を開く</a>\n'
+    : '';
   return `<!doctype html>
 <html lang="ja">
 <head>
@@ -87,10 +94,13 @@ function renderRootIndex(manifest) {
   <article>
     <h2>浦島太郎</h2>
     <p>紙芝居DSL 3.1の台本と、画像${manifest.assetCounts.images}件・音声${manifest.assetCounts.sounds}件から生成したサンプルです。</p>
+    ${webDescription}
     <div class="actions">
-      <a class="button" href="samples/urashima/">内容を見る</a>
-      <a class="button secondary" href="samples/urashima/urashima.txt">台本を表示</a>
-      <a class="button secondary" href="samples/urashima/urashima.sb3" download>再生用SB3</a>
+${webAction}      <a class="button secondary" href="samples/urashima/urashima.txt">台本を表示</a>
+      <a class="button secondary" href="samples/urashima/urashima.sb3" download>再生用SB3をダウンロード</a>
+      <a class="button secondary" href="samples/urashima/manifest.json">manifest</a>
+      <a class="button secondary" href="samples/urashima/LICENSES.md">ライセンス</a>
+      <a class="button secondary" href="samples/urashima/">詳細を見る</a>
     </div>
   </article>
   <footer>
@@ -104,6 +114,19 @@ function renderRootIndex(manifest) {
 }
 
 function renderSampleIndex(manifest) {
+  const webDescription = manifest.web.enabled
+    ? '<p>Web版には画像・音声・台本を組み込み済みです。TMPoseのライブラリ・モデル取得とカメラ利用にはネットワーク接続が必要です。</p>'
+    : '';
+  const webAction = manifest.web.enabled
+    ? '    <a class="button" href="web/">Web版を開く</a>\n'
+    : '';
+  const webHash = manifest.web.enabled
+    ? `  <p>Web版 SHA-256: <code>${manifest.web.output.sha256}</code></p>\n`
+    : '';
+  const webCredits = manifest.web.enabled
+    ? `  <h2>Web版のクレジット</h2>
+  <p>Web版は <a href="https://packager.turbowarp.org/">TurboWarp Packager</a> ${escapeHtml(manifest.web.packager.version)} で生成しています。PackagerはMPL-2.0で提供され、ライセンスと同梱ランタイムのクレジットは<a href="LICENSES.md">ライセンス情報</a>および生成HTML内で確認できます。</p>\n`
+    : '';
   const assetItems = manifest.assets
     .map(
       (asset) =>
@@ -136,16 +159,17 @@ function renderSampleIndex(manifest) {
   <nav><a href="../../">サンプル一覧へ戻る</a></nav>
   <h1>浦島太郎</h1>
   <p>同じ台本とアセットロックから、編集用と再生用の2種類のSB3を生成しています。</p>
+  ${webDescription}
   <div class="actions">
-    <a class="button" href="urashima.txt">台本を表示</a>
-    <a class="button" href="urashima.sb3" download>再生用SB3をダウンロード</a>
+${webAction}    <a class="button secondary" href="urashima.txt">台本を表示</a>
+    <a class="button secondary" href="urashima.sb3" download>再生用SB3をダウンロード</a>
     <a class="button secondary" href="_urashima.sb3" download>編集用SB3をダウンロード</a>
     <a class="button secondary" href="manifest.json">manifest</a>
     <a class="button secondary" href="LICENSES.md">ライセンス</a>
   </div>
   <p>再生用SB3 SHA-256: <code>${manifest.profiles.player.sb3.sha256}</code></p>
   <p>編集用SB3 SHA-256: <code>${manifest.profiles.editor.sb3.sha256}</code></p>
-  <h2>成果物プロファイル</h2>
+${webHash}  <h2>成果物プロファイル</h2>
   <ul>
     <li><code>generic</code>: <code>base/kamishibai.sb3</code> — 台本・物語固有アセット非埋め込みの汎用雛形</li>
     <li><code>editor</code>: <code>_urashima.sb3</code> — 台本非埋め込み・アセット埋め込みの編集用</li>
@@ -156,7 +180,7 @@ function renderSampleIndex(manifest) {
   <ul>
 ${assetItems}
   </ul>
-</main>
+${webCredits}</main>
 </body>
 </html>
 `;
@@ -206,9 +230,18 @@ export async function buildSite() {
   const embeddedPaths = new Set(
     assetManifest.assets.map((asset) => asset.uri.replace(/^file:/u, '')),
   );
+  const playerSb3Path =
+    results.player.outputPaths[results.player.manifest.outputs.sb3.filename];
+  const web = await buildPackagedWeb({
+    inputSb3Path: playerSb3Path,
+    outputSampleDirectory,
+    rawWebConfig: config.web,
+    expectedInput: artifactsLock.web.input,
+    expectedOutput: artifactsLock.web.output,
+  });
   const assets = [...images, ...sounds];
   const manifest = {
-    formatVersion: 2,
+    formatVersion: 3,
     sample: 'urashima',
     publicUrl: `${publicUrl}samples/urashima/`,
     license: 'MPL-2.0',
@@ -227,6 +260,7 @@ export async function buildSite() {
       editor: profileRecord('editor', results.editor, artifactsLock.profiles.editor),
       player: profileRecord('player', results.player, artifactsLock.profiles.player),
     },
+    web,
     assetCounts: {images: images.length, sounds: sounds.length, embedded: assetManifest.assets.length},
     unusedSourceAssets: assets
       .filter((asset) => !embeddedPaths.has(asset.path))
