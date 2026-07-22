@@ -1,0 +1,31 @@
+{
+  "formatVersion": 1,
+  "sample": "urashima",
+  "builder": {
+    "package": "@kubohiroya/tmpose-kamishibai",
+    "version": "3.1.0",
+    "source": "github:kubohiroya/tmpose-kamishibai#v3.1.0",
+    "commit": "c92c310159c88ff03ed3cae65dbe21f1991fcf16"
+  },
+  "baseSb3": {
+    "path": "base/kamishibai.sb3",
+    "profile": "generic",
+    "size": 466638,
+    "sha256": "552f712652187a6fc04e4e167451c9409317b3500c3fa91f052c3dc03a21a38f"
+  },
+  "sourceScript": "source.txt",
+  "assetManifest": "assets.lock.json",
+  "artifactsLock": "artifacts.lock.json",
+  "profiles": {
+    "editor": {
+      "outputName": "_urashima",
+      "script": "external",
+      "assets": "embedded"
+    },
+    "player": {
+      "outputName": "urashima",
+      "script": "embedded",
+      "assets": "embedded"
+    }
+  }
+}

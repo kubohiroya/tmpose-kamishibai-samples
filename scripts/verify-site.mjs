@@ -4,17 +4,21 @@ import {access, readFile, readdir, stat} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
+import {validateBundle} from '@kubohiroya/tmpose-kamishibai/builder';
+
 function sha256(contents) {
   return createHash('sha256').update(contents).digest('hex');
 }
 
 async function listFiles(directory, prefix = '') {
   const entries = await readdir(directory, {withFileTypes: true});
-  const files = await Promise.all(entries.map(async (entry) => {
-    const relativePath = path.join(prefix, entry.name);
-    if (entry.isDirectory()) return listFiles(path.join(directory, entry.name), relativePath);
-    return entry.isFile() ? [relativePath] : [];
-  }));
+  const files = await Promise.all(
+    entries.map(async (entry) => {
+      const relativePath = path.join(prefix, entry.name);
+      if (entry.isDirectory()) return listFiles(path.join(directory, entry.name), relativePath);
+      return entry.isFile() ? [relativePath] : [];
+    }),
+  );
   return files.flat().sort();
 }
 
@@ -33,9 +37,36 @@ async function verifyLinks(htmlPath) {
   return html;
 }
 
+async function verifyFile(outputSampleDirectory, record, description) {
+  const contents = await readFile(path.join(outputSampleDirectory, record.path));
+  assert.equal(contents.length, record.size, `${description} size mismatch.`);
+  assert.equal(sha256(contents), record.sha256, `${description} SHA-256 mismatch.`);
+  return contents;
+}
+
+async function verifyProfile(outputSampleDirectory, profile, record) {
+  assert.equal(record.profile, profile);
+  assert.equal(record.assets, 'embedded');
+  assert.equal(record.scriptMode, profile === 'player' ? 'embedded' : 'external');
+  const [sb3Contents, scriptContents, builderManifestContents] = await Promise.all([
+    verifyFile(outputSampleDirectory, record.sb3, `${profile} SB3`),
+    verifyFile(outputSampleDirectory, record.script, `${profile} script`),
+    readFile(path.join(outputSampleDirectory, record.builderManifest.path)),
+  ]);
+  assert.equal(sha256(builderManifestContents), record.builderManifest.sha256);
+  const builderManifest = JSON.parse(builderManifestContents.toString('utf8'));
+  assert.equal(builderManifest.profile, profile);
+  assert.equal(builderManifest.outputName, record.outputName);
+  assert.equal(builderManifest.assets.length, 42);
+  assert.equal(builderManifest.builder.package, '@kubohiroya/tmpose-kamishibai');
+  assert.equal(builderManifest.builder.version, '3.1.0');
+  validateBundle({sb3Bytes: sb3Contents, scriptBytes: scriptContents, manifest: builderManifest});
+  assert.equal(/^(?:asset=.*,(?:file|https?):)/mu.test(scriptContents.toString('utf8')), false);
+  return {builderManifest, sb3Contents, scriptContents};
+}
+
 export async function verifyPublishedSite(options = {}) {
-  const projectRoot = options.projectRoot
-    ?? fileURLToPath(new URL('../', import.meta.url));
+  const projectRoot = options.projectRoot ?? fileURLToPath(new URL('../', import.meta.url));
   const outputDirectory = options.outputDirectory ?? path.join(projectRoot, 'dist');
   const sourceDirectory = options.sourceDirectory ?? path.join(projectRoot, 'samples/urashima');
   const outputSampleDirectory = path.join(outputDirectory, 'samples/urashima');
@@ -59,28 +90,52 @@ export async function verifyPublishedSite(options = {}) {
     assert(source.equals(published), `Published file differs from source: ${relativePath}`);
   }
 
-  assert(manifest.formatVersion === 1 && manifest.sample === 'urashima');
-  assert(manifest.publicUrl === 'https://kubohiroya.github.io/tmpose-kamishibai-samples/samples/urashima/');
-  assert(manifest.license === 'MPL-2.0');
-  assert(manifest.assetCounts.images === 24 && manifest.assetCounts.sounds === 21);
-  assert(manifest.assets.length === 45);
+  assert.equal(manifest.formatVersion, 2);
+  assert.equal(manifest.sample, 'urashima');
+  assert.equal(
+    manifest.publicUrl,
+    'https://kubohiroya.github.io/tmpose-kamishibai-samples/samples/urashima/',
+  );
+  assert.equal(manifest.license, 'MPL-2.0');
+  assert.equal(manifest.builder.version, '3.1.0');
+  assert.equal(manifest.baseSb3.profile, 'generic');
+  assert.equal(manifest.baseSb3.published, true);
+  assert.deepEqual(manifest.assetCounts, {images: 24, sounds: 21, embedded: 42});
+  assert.equal(manifest.assets.length, 45);
+  assert.deepEqual(manifest.unusedSourceAssets, [
+    'assets/sounds/a5cd5e83841aaaf34583d6ad53d551f5.wav',
+    'assets/sounds/a634fcb87894520edbd7a534d1479ec4.wav',
+    'assets/sounds/c04ebf21e5e19342fa1535e4efcdb43b.wav',
+  ]);
   for (const asset of manifest.assets) {
-    const contents = await readFile(path.join(outputSampleDirectory, asset.path));
-    assert(contents.length === asset.size, `Asset size mismatch: ${asset.path}`);
-    assert(sha256(contents) === asset.sha256, `Asset SHA-256 mismatch: ${asset.path}`);
+    await verifyFile(outputSampleDirectory, asset, asset.path);
   }
 
-  const sb3Contents = await readFile(path.join(outputSampleDirectory, manifest.sb3.path));
-  const scriptContents = await readFile(path.join(outputSampleDirectory, manifest.script.path));
-  assert(scriptContents.length === manifest.script.size);
-  assert(sha256(scriptContents) === manifest.script.sha256);
-  assert(sb3Contents.length === manifest.sb3.size);
-  assert(sha256(sb3Contents) === manifest.sb3.sha256);
+  const [editor, player, publicScript, baseSb3, sourceScript, assetManifest] = await Promise.all([
+    verifyProfile(outputSampleDirectory, 'editor', manifest.profiles.editor),
+    verifyProfile(outputSampleDirectory, 'player', manifest.profiles.player),
+    verifyFile(outputSampleDirectory, manifest.script, 'public script'),
+    verifyFile(outputSampleDirectory, manifest.baseSb3, 'generic base SB3'),
+    verifyFile(outputSampleDirectory, manifest.source.script, 'source script'),
+    verifyFile(outputSampleDirectory, manifest.source.assetManifest, 'asset manifest'),
+  ]);
+  assert(editor.scriptContents.equals(player.scriptContents));
+  assert(player.scriptContents.equals(publicScript));
+  assert.equal(editor.builderManifest.script.mode, 'external');
+  assert.equal(editor.builderManifest.script.embeddedVariableId, null);
+  assert.equal(player.builderManifest.script.mode, 'embedded');
+  assert.equal(player.builderManifest.script.embeddedVariableId, 'tmposeEmbeddedScript');
+  assert.equal(baseSb3.length, manifest.baseSb3.size);
+  assert(sourceScript.includes(Buffer.from('file:assets/')));
+  assert.equal(JSON.parse(assetManifest.toString('utf8')).assets.length, 42);
+
   assert(license.startsWith('Mozilla Public License Version 2.0'));
   assert(licenseSummary.includes('MPL-2.0'));
   assert(rootIndex.includes('https://github.com/kubohiroya/tmpose-kamishibai-samples'));
   assert(!rootIndex.includes('https://kubohiroya.github.io/tmpose-kamishibai/samples/'));
-  assert(sampleIndex.includes(manifest.sb3.sha256));
+  assert(sampleIndex.includes(manifest.profiles.player.sb3.sha256));
+  assert(sampleIndex.includes(manifest.profiles.editor.sb3.sha256));
+  assert(sampleIndex.indexOf('台本を表示') < sampleIndex.indexOf('再生用SB3をダウンロード'));
   assert(publishedFiles.includes('.nojekyll'));
 
   const noJekyll = await stat(path.join(outputDirectory, '.nojekyll'));
