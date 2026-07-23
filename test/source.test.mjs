@@ -51,6 +51,10 @@ test('keeps the migrated Scratch assets complete and content-addressed', async (
       const contents = await readFile(path.join(assetDirectory, filename));
       const md5 = createHash('md5').update(contents).digest('hex');
       assert.equal(md5, path.parse(filename).name, filename);
+      if (directory === 'sounds') {
+        assert.equal(path.extname(filename), '.mp3');
+        assert.equal(contents.subarray(0, 3).toString('ascii'), 'ID3');
+      }
     }
   }
 });
@@ -120,6 +124,12 @@ test('locks every external script asset and publishes one transformed script', a
     .filter((line) => /^asset=.*,(?:file|https?):/u.test(line));
   assert.equal(externalLines.length, 42);
   assert.equal(assetManifest.assets.length, 42);
+  assert.equal(
+    assetManifest.assets
+      .filter((asset) => asset.kind === 'stageSound')
+      .every((asset) => asset.contentType === 'audio/mpeg' && asset.dataFormat === 'mp3'),
+    true,
+  );
   assert.deepEqual(
     new Set(externalLines.map((line) => line.slice('asset='.length, line.indexOf(',')))),
     new Set(assetManifest.assets.map((asset) => asset.name)),

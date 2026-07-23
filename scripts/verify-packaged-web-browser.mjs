@@ -128,9 +128,34 @@ try {
   assert.equal(fileChooserCount, 0);
   assert.deepEqual(rejectedRequests, []);
 
+  const audioState = await page.evaluate(async () => {
+    const runtime = window.scaffolding.vm.runtime;
+    const stage = runtime.getTargetForStage();
+    const sounds = stage.getSounds();
+    const soundBank = stage.sprite.soundBank;
+    const testSound = sounds.find((sound) => sound.name === 'Jump');
+    await runtime.audioEngine.audioContext.resume();
+    runtime.ext_scratch3_sound.playSound({SOUND_MENU: testSound.name}, {target: stage});
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    return {
+      contextState: runtime.audioEngine.audioContext.state,
+      soundCount: sounds.length,
+      mp3SoundCount: sounds.filter((sound) => sound.dataFormat === 'mp3').length,
+      decodedSoundCount: Object.keys(soundBank.soundPlayers).length,
+      testSoundPlaying: soundBank.soundPlayers[testSound.soundId].isPlaying,
+    };
+  });
+  assert.deepEqual(audioState, {
+    contextState: 'running',
+    soundCount: 18,
+    mp3SoundCount: 18,
+    decodedSoundCount: 18,
+    testSoundPlaying: true,
+  });
+
   const uniqueRequests = [...new Set(requests)];
   const storyResourceRequests = uniqueRequests.filter((url) =>
-    /(?:urashima\.txt|urashima\.sb3|\/assets\/|\.(?:png|svg|wav))(?:[?#]|$)/iu.test(url),
+    /(?:urashima\.txt|urashima\.sb3|\/assets\/|\.(?:mp3|png|svg|wav))(?:[?#]|$)/iu.test(url),
   );
   assert.deepEqual(storyResourceRequests, []);
   for (const url of uniqueRequests.filter((value) => /^https?:/u.test(value))) {
@@ -141,7 +166,7 @@ try {
   }
 
   console.log(
-    `Verified ${browserName}: title, one-click embedded start, no file picker, and ${uniqueRequests.length} allowed requests.`,
+    `Verified ${browserName}: title, one-click embedded start, 18 decoded MP3 sounds with playback, no file picker, and ${uniqueRequests.length} allowed requests.`,
   );
 } finally {
   await browser?.close();

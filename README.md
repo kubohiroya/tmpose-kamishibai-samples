@@ -9,7 +9,7 @@
 - `source.txt`: 元アセットを `file:` 参照するビルド元台本
 - `urashima.txt`: editor/playerで共通の変換済み公開用台本
 - `assets/images/`: 画像元データ 24ファイル
-- `assets/sounds/`: 音声元データ 21ファイル
+- `assets/sounds/`: Web再生互換性のためMP3へ統一した音声元データ 21ファイル
 - `assets.lock.json`: 組み込み対象42件の名前・target・ハッシュ・メタデータ
 - `sample.config.json`: `generic` / `editor` / `player` とWeb版の生成設定
 - `artifacts.lock.json`: 再現可能な生成物のサイズとSHA-256
